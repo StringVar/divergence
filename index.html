@@ -2,42 +2,23 @@
 <html>
   <head>
     <script src="divergence.js"></script>
-    <!-- <style> -->
-
-    <!--   svg { -->
-    <!--       height: 200px; -->
-    <!--       width: 200px; -->
-    <!--   } -->
-    <!--   body { -->
-    <!--       background-color: linen; -->
-    <!--   } -->
-
-    <!--   h1 { -->
-    <!--       color: maroon; -->
-    <!--       margin-left: 40px; -->
-    <!--   } -->
-      
-    <!-- </style> -->
-
-
+    
   </head>
   <body>
 
-    <canvas id="canvas" width="1200" height="1200"></canvas>
-    
+    <canvas id="canvas"></canvas>    
     <script>
-    
-      const canvas = document.getElementById('canvas');
+      //basic setup for full screen
+      var canvas = document.getElementById('canvas');
+      
+      canvas.width  = window.innerWidth;
+      canvas.height = window.innerHeight;
+      
       const ctx = canvas.getContext('2d');
-      // ctx.beginPath();
-      // ctx.arc(200, 200, 100, 0, 180*Math.PI);
-      // ctx.stroke();
-      count=0;
-      window.setInterval(()=>{main(canvas,ctx);}, 20);
+      
+      main(canvas,ctx);
       
     </script>
-    
-    
   </body>
   
 </html>

@@ -1,36 +1,42 @@
 // animation 
 var count = 0;
-var stop = false;
+var stop = false;//set stop to true to stop
 var maxRadius = 650;
 var radiusInc = 10;
-var removeCount=0;
-function main(canvas,ctx){
-    // console.log("tick",count);
-    count++;
-    if(!stop){
-        // stop = count > 1000?true:false;
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        // generate_divergence(ctx, canvas.width/,600,count, 600);
-        var i;
-        // generate_divergence(ctx, 600,600,i, 600);
-        // for(i =count;i>0;i--){
-        //     generate_divergence(ctx, i,1*i);
-        // }}
+var removeCount = 0;
 
-        for(i=removeCount; i< count ;i++){
-            generate_divergence(ctx,canvas.width/2,canvas.height/2, i , (radiusInc*(count-i)) );
-        }
-        if((radiusInc*(count))>canvas.height/2){
-            // if the radius of largest is greater than what can be displayed
-            //remove that from the display que
-            removeCount += 1;
-        }
+function main(canvas,ctx){
+
+    window.setInterval(()=>{main_loop(canvas,ctx);}, 20);
+
+    maxRadius = Math.Sqrt((canvas.height/2)^2 + (canvas.width/2)^2 );
+    
+    if(!stop){
+        main_loop(canvas,ctx);
+        
     }else{
         window.clearInterval();
     }
 }
 
+function main_loop(canvas,ctx){
+    count++;
+    // console.log("tick",count);
 
+    ctx.clearRect(0, 0, canvas.width, canvas.height);// clear screen
+    
+    var i;
+    for(i=removeCount; i< count ;i++){
+        generate_divergence(ctx,canvas.width/2,canvas.height/2, i , (radiusInc*(count-i)) );
+    }
+    
+    if((radiusInc*(count)) > maxRadius){
+        // if the radius of largest is greater than what can be displayed
+        //remove that from the display que
+        removeCount += 1;
+    }
+
+}
 
 
 function regular_polygon_vertex_angle(vert_num, num){
