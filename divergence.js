@@ -2,21 +2,24 @@
 var count = 0;
 var stop = false;//set stop to true to stop
 var maxRadius = 650;
-var radiusInc = 1;
+var radiusInc = 50;
 var removeCount = 0;
-var incNum = 1; // the number the count is done
+var incNum = 0.1; // the number the count is done
+
 function set_canvas_max_window(canvas){
     canvas.width  = window.innerWidth;
     canvas.height = window.innerHeight;
 }
 
+
 function main(canvas,ctx){
 
-    window.setInterval(()=>{main_loop(canvas,ctx);}, 20);
+    window.setInterval(()=>{main_loop(canvas,ctx);}, 40);
 
-    maxRadius = Math.Sqrt((canvas.height/2)^2 + (canvas.width/2)^2 );
     set_canvas_max_window(canvas);
 
+    radiusInc = canvas.height/(2*10);
+    maxRadius = Math.sqrt((canvas.height/2)**2 + (canvas.width/2)**2) + radiusInc;
     
     if(!stop){
         main_loop(canvas,ctx);
