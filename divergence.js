@@ -5,11 +5,18 @@ var maxRadius = 650;
 var radiusInc = 1;
 var removeCount = 0;
 var incNum = 1; // the number the count is done
+function set_canvas_max_window(canvas){
+    canvas.width  = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+
 function main(canvas,ctx){
 
     window.setInterval(()=>{main_loop(canvas,ctx);}, 20);
 
     maxRadius = Math.Sqrt((canvas.height/2)^2 + (canvas.width/2)^2 );
+    set_canvas_max_window(canvas);
+
     
     if(!stop){
         main_loop(canvas,ctx);
