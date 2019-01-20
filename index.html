@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="divergence.js"></script>
+    <!-- <style> -->
+
+    <!--   svg { -->
+    <!--       height: 200px; -->
+    <!--       width: 200px; -->
+    <!--   } -->
+    <!--   body { -->
+    <!--       background-color: linen; -->
+    <!--   } -->
+
+    <!--   h1 { -->
+    <!--       color: maroon; -->
+    <!--       margin-left: 40px; -->
+    <!--   } -->
+      
+    <!-- </style> -->
+
+
+  </head>
+  <body>
+
+    <canvas id="canvas" width="1200" height="1200"></canvas>
+    
+    <script>
+    
+      const canvas = document.getElementById('canvas');
+      const ctx = canvas.getContext('2d');
+      // ctx.beginPath();
+      // ctx.arc(200, 200, 100, 0, 180*Math.PI);
+      // ctx.stroke();
+      count=0;
+      window.setInterval(()=>{main(canvas,ctx);}, 20);
+      
+    </script>
+    
+    
+  </body>
+  
+</html>
+
+
