@@ -19,8 +19,21 @@
       main(canvas,ctx);
       
     </script>
+
+    <div class="slidecontainer">
+      <a>radius increment:</a>
+      <input type="range"
+             min="1"
+             max="100" value="20" class="slider" id="radiusIncSlider">
+      <script>
+        var slider = document.getElementById("radiusIncSlider");
+        slider.oninput = function() {
+            radiusInc = this.value;
+        } 
+      </script>
+      
+    </div>
+    
   </body>
   
 </html>
-
-
