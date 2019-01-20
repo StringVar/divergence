@@ -18,7 +18,7 @@ function main(canvas,ctx){
 
     set_canvas_max_window(canvas);
 
-    radiusInc = canvas.height/(2*10);
+   
     maxRadius = Math.sqrt((canvas.height/2)**2 + (canvas.width/2)**2) + radiusInc;
     
     if(!stop){
